@@ -49,3 +49,8 @@ readCleanData <- function(path) {
     
     rbind(test, train)
 }
+
+computeMeans <- function(data) {
+    len <- dim(data)[2]
+    y <- aggregate(data[,1:len], FUN = mean, by = list(data$activity, data$subject))
+}
