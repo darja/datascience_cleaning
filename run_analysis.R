@@ -37,20 +37,29 @@ readGroup <- function(path, group) {
     activities <- readTable(path, group, "y")
     names(activities) <- c("id")
     
+    activityLabels <- read.table(file = sprintf("%1$sactivity_labels.txt", path))
+    names(activityLabels) <- c("id", "name")
+    
+    activities <- merge(activities, activityLabels, by.x = "id", by.y = "id")
+    
     data$subject <- subjects$id
-    data$activity <- activities$id
+    data$activity <- activities$name
     
     data
 }
 
-readCleanData <- function(path) {
+cleanData <- function(path) {
     test <- readGroup(path, "test")
     train <- readGroup(path, "train")
     
-    rbind(test, train)
+    result <- rbind(test, train)
+    write.csv(result, file="clean_data.csv", row.names = FALSE)
+    print("Clean data was written to clean_data.csv")
+    
+    result
 }
 
 computeMeans <- function(data) {
     len <- dim(data)[2]
-    y <- aggregate(data[,1:len], FUN = mean, by = list(data$activity, data$subject))
+    aggregate(data[,1:len], FUN = mean, by = list(data$activity, data$subject))
 }
