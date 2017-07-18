@@ -37,13 +37,8 @@ readGroup <- function(path, group) {
     activities <- readTable(path, group, "y")
     names(activities) <- c("id")
     
-    activityLabels <- read.table(file = sprintf("%1$sactivity_labels.txt", path))
-    names(activityLabels) <- c("id", "name")
-    
-    activities <- merge(activities, activityLabels, by.x = "id", by.y = "id")
-    
     data$subject <- subjects$id
-    data$activity <- activities$name
+    data$activity <- activities$id
     
     data
 }
@@ -65,8 +60,8 @@ computeMeans <- function(data) {
     names(result)[1] = "activity"
     names(result)[2] = "subject"
     
-    write.csv(result, file="clean_summary.csv", row.names = FALSE)
-    print("Summary data was written to clean_summary.csv")
+    write.table(result, file="clean_summary.txt", row.names = FALSE)
+    print("Summary data was written to clean_summary.txt")
     
     result
 }

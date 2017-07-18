@@ -8,7 +8,7 @@ Contents
 
 * `run_analysis.R` - R script for data cleaning
 * `clean_data.csv` - result file with clean data
-* `clean_summary.csv` - result file with the average of each variable for each activity and each subject.
+* `clean_summary.txt` - result file with the average of each variable for each activity and each subject.
 
 Dataset
 --------------

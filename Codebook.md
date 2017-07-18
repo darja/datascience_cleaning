@@ -12,13 +12,13 @@ Result Datasets
 #### Structure
 
 * **subject** -- identifier for a person
-* **activity** -- activity label. Possible values:
-    * WALKING
-    * WALKING_UPSTAIRS
-    * WALKING_DOWNSTAIRS
-    * SITTING
-    * STANDING
-    * LAYING
+* **activity** -- activity id. Possible values:
+    * 1 for WALKING
+    * 2 for WALKING_UPSTAIRS
+    * 3 for WALKING_DOWNSTAIRS
+    * 4 for SITTING
+    * 5 for STANDING
+    * 6 for LAYING
 * Mean values for sensor signals, normalized to range [-1,1]
     * tBodyAccMeanX
     * tBodyAccMeanY
