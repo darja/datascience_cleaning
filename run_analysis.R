@@ -60,6 +60,13 @@ cleanData <- function(path) {
 }
 
 computeMeans <- function(data) {
-    len <- dim(data)[2]
-    aggregate(data[,1:len], FUN = mean, by = list(data$activity, data$subject))
+    colnum <- dim(data)[2] - 2
+    result <- aggregate(data[,1:colnum], FUN = mean, by = list(data$activity, data$subject))
+    names(result)[1] = "activity"
+    names(result)[2] = "subject"
+    
+    write.csv(result, file="clean_summary.csv", row.names = FALSE)
+    print("Summary data was written to clean_summary.csv")
+    
+    result
 }

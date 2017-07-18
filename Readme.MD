@@ -8,6 +8,7 @@ Contents
 
 * `run_analysis.R` - R script for data cleaning
 * `clean_data.csv` - result file with clean data
+* `clean_summary.csv` - result file with the average of each variable for each activity and each subject.
 
 Dataset
 --------------
@@ -23,5 +24,6 @@ path <- "your/dataset/folder/"
 data <- cleanData(path) 
 
 # function for creating data set with the average of each variable for each activity and each subject
+# result is written to clean_summary.csv
 computeMeans(data) 
 ```
