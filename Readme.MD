@@ -27,3 +27,5 @@ data <- cleanData(path)
 # result is written to clean_summary.csv
 computeMeans(data) 
 ```
+
+See [Codebook](Codebook.md) for result dataset details
